@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSalesTable extends Migration
+class CreateAlimentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateSalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sales', function (Blueprint $table) {
+        Schema::create('aliments', function (Blueprint $table) {
             $table->id();
+            $table->string('label');
+            $table->enum('type', ['start', 'growth', 'finish'])->default('start');
             $table->integer('quantity');
-            $table->float('price', '8', '2');
-            $table->float('total_price', '8', '2');
-            $table->enum('status', ['pending', 'paid'])->default('pending');
-            $table->string('buyer')->nullable();
+            $table->float('weight')->nullable();
+            $table->float('price', '8', '2')->default('0');
+            $table->float('quantity_consumed', '8', '2')->default('0');
             $table->integer('band_id');
             $table->timestamps();
         });
@@ -32,6 +33,6 @@ class CreateSalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sales');
+        Schema::dropIfExists('aliments');
     }
 }
