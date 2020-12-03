@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Sale;
+use App\Models\Band;
 
 class Sale extends Model
 {
@@ -19,7 +20,19 @@ class Sale extends Model
         'quantity', 'price', 'status', 'buyer', 'band_id'
     ];
 
+    public function band() {
+        return $this->belongsTo(Band::class);
+    }
+
     public function allSale() {
         return Sale::all();
+    }
+
+    public function findSale($id) {
+        return Sale::find($id);
+    }
+
+    public function deleteSale($id) {
+        return Sale::find($id)->delete();
     }
 }

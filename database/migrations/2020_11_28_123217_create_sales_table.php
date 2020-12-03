@@ -16,8 +16,9 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity');
-            $table->float('price');
-            $table->enum('status', ['pending', 'paid'])->default('paid');
+            $table->float('price', '8', '2');
+            $table->float('total_price', '8', '2');
+            $table->enum('status', ['pending', 'paid'])->default('pending');
             $table->string('buyer')->nullable();
             $table->integer('band_id');
             $table->timestamps();

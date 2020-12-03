@@ -18,7 +18,7 @@ class CreateBandsTable extends Migration
             $table->string('label');
             $table->integer('quantity');
             $table->float('unit_price', '8', '2');
-            $table->enum('status', ['incomplete', 'complete', 'elapsed'])->default('incomplete');
+            $table->enum('status', ['start', 'growth', 'finish', 'mature'])->default('start');
             $table->integer('loss')->default('0');
             $table->float('purchase_price', '8', '2')->default('0');
             $table->float('benefits', '8', '2')->default('0');

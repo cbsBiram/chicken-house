@@ -40,7 +40,7 @@
                                     <td>{{ $sale->price }}</td>
                                     <td>{{ $sale->status }}</td>
                                     <td>{{ $sale->buyer }}</td>
-                                    <td>{{ $sale->band_id }}</td>
+                                    <td>{{ $sale->band->label }}</td>
                                     <td>
                                         <a class="btn btn-primary" href="{{route('sale.edit', [$sale->id])}}">Edit</a>
                                     </td>

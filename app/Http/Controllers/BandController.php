@@ -72,7 +72,8 @@ class BandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $band = (new Band)->findBand($id);
+        return view('backend.band.edit', compact('band'));
     }
 
     /**
@@ -84,7 +85,22 @@ class BandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'label' => 'required|string',
+            'quantity' => 'required|integer',
+            'unit_price' => 'required'
+        ]);
+        
+        
+        $band = Band::find($id);
+        $band->label = $request->get('label');
+        $band->quantity = $request->get('quantity');
+        $band->unit_price = $request->get('unit_price');
+        $band->purchase_price = $request->get('unit_price') * $request->get('quantity');
+        $band->provider = $request->get('provider');
+        $band ->save();
+
+        return redirect()->route('band.index')->with('message', 'Band updated successfully');
     }
 
     /**

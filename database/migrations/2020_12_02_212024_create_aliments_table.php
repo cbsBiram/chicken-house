@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResourcesTable extends Migration
+class CreateAlimentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateResourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resources', function (Blueprint $table) {
+        Schema::create('aliments', function (Blueprint $table) {
             $table->id();
             $table->string('label');
-            $table->enum('type', ['aliment', 'vaccin']);
+            $table->enum('type', ['start', 'growth', 'finish'])->default('start');
             $table->integer('quantity');
             $table->float('weight')->nullable();
             $table->float('price', '8', '2')->default('0');
@@ -33,6 +33,6 @@ class CreateResourcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resources');
+        Schema::dropIfExists('aliments');
     }
 }
