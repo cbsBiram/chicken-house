@@ -39,6 +39,10 @@ class Band extends Model
         return Band::all();
     }
 
+    public function findBand($id) {
+        return Band::find($id);
+    }
+
     public function deleteBand($id) {
         return Band::find($id)->delete();
     }

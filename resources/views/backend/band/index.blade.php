@@ -25,7 +25,8 @@
                                 <th>Quantity</th>
                                 <th>Price (F CFA)</th>
                                 <th>Status</th>
-                                <th>Benefits (F CFA)</th>
+                                <th>Created Date</th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -40,7 +41,10 @@
                                     <td>{{ $band->quantity }}</td>
                                     <td>{{ $band->unit_price }}</td>
                                     <td>{{ $band->status }}</td>
-                                    <td>{{ $band->benefits }}</td>
+                                    <td>{{ $band->created_at }}</td>
+                                    <td>
+                                        <a class="btn btn-secondary" href="{{route('band.show', [$band->id])}}">View</a>
+                                    </td>
                                     <td>
                                         <a class="btn btn-primary" href="{{route('band.edit', [$band->id])}}">Edit</a>
                                     </td>
