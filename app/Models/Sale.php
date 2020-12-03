@@ -22,4 +22,12 @@ class Sale extends Model
     public function allSale() {
         return Sale::all();
     }
+
+    public function findSale($id) {
+        return Sale::find($id);
+    }
+
+    public function deleteSale($id) {
+        return Sale::find($id)->delete();
+    }
 }

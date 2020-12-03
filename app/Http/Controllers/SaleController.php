@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Band;
 use App\Models\Sale;
 
 class SaleController extends Controller
@@ -25,7 +26,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        //
+        $bands = Band::where('status', '!=', 'mature')->get();
+        return view('backend.sale.create', compact('bands'));
     }
 
     /**
@@ -36,7 +38,21 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'quantity' => 'required|integer',
+            'price' => 'required',
+            'band' => 'required',
+        ]);
+
+        $sale = new Sale;
+        $sale->quantity = $request->get('quantity');
+        $sale->price = $request->get('price');
+        $sale->band_id = $request->get('band');
+        $sale->buyer = $request->get('buyer');
+        $sale->total_price = $request->get('quantity') * $request->get('price');
+        $sale->save();
+
+        return redirect()->back()->with('message', 'Sale created successfully');
     }
 
     /**
@@ -58,7 +74,9 @@ class SaleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sale = (new Sale)->findSale($id);
+        $bands = Band::where('status', '!=', 'mature')->get();
+        return view('backend.sale.edit', compact('sale', 'bands'));
     }
 
     /**
@@ -70,7 +88,21 @@ class SaleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'quantity' => 'required|integer',
+            'price' => 'required',
+            'band' => 'required',
+        ]);
+
+        $sale = Sale::find($id);
+        $sale->quantity = $request->get('quantity');
+        $sale->price = $request->get('price');
+        $sale->band_id = $request->get('band');
+        $sale->buyer = $request->get('buyer');
+        $sale->total_price = $request->get('quantity') * $request->get('price');
+        $sale->save();
+
+        return redirect()->route('sale.index')->with('message', 'Sale updated successfully!');
     }
 
     /**
