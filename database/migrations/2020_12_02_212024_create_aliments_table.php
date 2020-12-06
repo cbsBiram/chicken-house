@@ -15,12 +15,12 @@ class CreateAlimentsTable extends Migration
     {
         Schema::create('aliments', function (Blueprint $table) {
             $table->id();
-            $table->string('label');
             $table->enum('type', ['start', 'growth', 'finish'])->default('start');
             $table->integer('quantity');
+            $table->float('quantity_consumed', '8', '2')->default('0');
             $table->float('weight')->nullable();
             $table->float('price', '8', '2')->default('0');
-            $table->float('quantity_consumed', '8', '2')->default('0');
+            $table->float('total_price', '8', '2')->default('0');
             $table->integer('band_id');
             $table->timestamps();
         });

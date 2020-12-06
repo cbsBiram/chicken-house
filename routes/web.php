@@ -28,6 +28,10 @@ Route::group(['middleware' => 'isAdmin'], function () {
         return view('admin.index');
     });
    Route::resource('band', 'BandController'); 
-   Route::resource('user', 'UserController'); 
+   Route::resource('extra', 'ExtraChargeController'); 
+   Route::resource('food', 'AlimentController'); 
    Route::resource('sale', 'SaleController'); 
+   Route::resource('user', 'UserController');
+   Route::get('food/create/{bandId}', 'AlimentController@createFood'); 
+   Route::post('food/store/{bandId}', 'AlimentController@storeFood'); 
 });

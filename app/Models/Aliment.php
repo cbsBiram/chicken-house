@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Aliment;
+
 class Aliment extends Model
 {
     use HasFactory;
@@ -15,7 +17,11 @@ class Aliment extends Model
      * @var array
      */
     protected $fillable = [
-        'label', 'type', 'quantity', 'weight', 'price',
+        'total_price', 'type', 'quantity', 'weight', 'price',
         'quantity_consumed', 'band_id'
     ];
+
+    public function findFood($id) {
+        return Aliment::find($id);
+    }
 }

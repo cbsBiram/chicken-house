@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-    @section('title','create sale')
+    @section('title','create food charges')
 
     @section('content')
 
@@ -11,13 +11,29 @@
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
             @endif
 
-            <form action="{{ route('sale.store') }}" method="POST">@csrf
+            <form action="/food/store/{{$band_id}}" method="POST">@csrf
                 <div class="module">
                     <div class="module-head">
-                        <h3>Create Sale</h3>
+                        <h3>Create food charges</h3>
                     </div>
                     <div class="module-body">
                         <div class="control-group">
+                            <label class="control-label">Type</label>
+                            <div class="controls">
+                                <select name="type" class="form-control @error('type') is-invalid @enderror">
+                                    <option value="">Choose a category</value>
+                                    <option value="start">Start</option>
+                                    <option value="growth">Growth</option>
+                                    <option value="finish">Finish</option>
+                                </select>
+
+                                @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong style="color: red; !important">{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
                             <label class="control-label">Quantity</label>
                             <div class="controls">
                                 <input type="number" name="quantity" class="span8 @error('quantity') border-red @enderror" 
@@ -31,6 +47,20 @@
                                     </span>
                                 @enderror
                             </div>
+                            <label class="control-label">Weight (Kg)</label>
+                            <div class="controls">
+                                <input type="text" name="weight" class="span8 @error('weight') border-red @enderror" 
+                                    placeholder="weight" 
+                                    value="{{ old('weight') }}"
+                                >
+
+                                @error('weight')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong style="color: red; !important">{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                
+                            </div>
                             <label class="control-label">Price (F CFA)</label>
                             <div class="controls">
                                 <input type="text" name="price" class="span8 @error('price') border-red @enderror" 
@@ -43,36 +73,7 @@
                                         <strong style="color: red; !important">{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                            <label class="control-label">Band</label>
-                            <div class="controls">
-                                <select name="band" class="form-control @error('band') is-invalid @enderror">
-                                    <option value="">Choose a band</value>
-                                    @foreach($bands as $band)
-                                        <option value="{{$band->id}}">
-                                            {{$band->label}}
-                                        </option>
-                                    @endforeach
-                                </select>
-
-                                @error('band')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong style="color: red; !important">{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <label class="control-label">Buyer</label>
-                            <div class="controls">
-                                <input type="text" name="buyer" class="span8 @error('buyer') border-red @enderror" 
-                                    placeholder="buyer" 
-                                    value="{{ old('buyer') }}"
-                                >
-
-                                @error('buyer')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong style="color: red; !important">{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                
                             </div>
 
                             <div class="controls">
