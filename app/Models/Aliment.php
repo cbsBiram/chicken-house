@@ -24,4 +24,8 @@ class Aliment extends Model
     public function findFood($id) {
         return Aliment::find($id);
     }
+
+    public function deleteFood($id) {
+        return Aliment::find($id)->delete();
+    }
 }

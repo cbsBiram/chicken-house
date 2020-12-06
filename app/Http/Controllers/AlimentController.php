@@ -127,6 +127,7 @@ class AlimentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        (new Aliment)->deleteFood($id);
+        return redirect()->route('band.index')->with('message', 'Food charges deleted successfully!');
     }
 }
