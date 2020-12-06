@@ -61,7 +61,8 @@ class BandController extends Controller
      */
     public function show($id)
     {
-        //
+        $band = Band::find($id);
+        return view('backend.band.show', compact('band'));
     }
 
     /**

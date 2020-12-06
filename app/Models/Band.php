@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Band;
-use App\Models\extra_charges;
-use App\Models\Resource;
+use App\Models\ExtraCharge;
+use App\Models\Aliment;
 use App\Models\Sale;
 
 class Band extends Model
@@ -27,12 +27,12 @@ class Band extends Model
         return $this->hasMany(Sale::class);
     }
 
-    public function resources() {
-        return $this->hasMany(Resource::class);
+    public function foods() {
+        return $this->hasMany(Aliment::class);
     }
 
     public function extra_charges() {
-        return $this->hasMany(extra_charges::class);
+        return $this->hasMany(ExtraCharge::class);
     }
 
     public function allBand() {
