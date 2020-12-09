@@ -13,15 +13,18 @@
                         <h4>{{ $band->label }}</h4>
                         <div class="btn-box-row row-fluid">
                             
-                            <a href="#" class="btn-box-darker big span4"><i class=" icon-random"></i><b>{{$band->status}}</b>
-                                <p class="text-muted">
-                                    Status</p>
-                            </a><a href="#" class="btn-box-darker big span4"><i class="icon-user"></i><b>{{$band->loss}}</b>
-                                <p class="text-muted">
-                                    Number of losses</p>
-                            </a><a href="#" class="btn-box-darker big span4"><i class="icon-money"></i><b>{{$band->benefits}}</b>
-                                <p class="text-muted">
-                                    Benefits</p>
+                            <a href="#" class="btn-box-darker big span4">
+                                <i class=" icon-random"></i>
+                                <b>{{$band->status}}</b>
+                                <p class="text-muted">Status</p>
+                            </a><a href="#" class="btn-box-darker big span4">
+                                <i class="icon-user"></i>
+                                <b>{{$band->loss}}</b>
+                                <p class="text-muted">Number of losses</p>
+                            </a>
+                            <a href="#" class="btn-box-darker big span4">
+                                <i class="icon-money"></i><b>{{ number_format($band->benefits) }}</b>
+                                <p class="text-muted">Benefits</p>
                             </a>
                         </div>
                     </div>
@@ -61,8 +64,8 @@
                                                     <td>{{ $food->quantity }}</td>
                                                     <td>{{ $food->quantity_consumed }}</td>
                                                     <td>{{ $food->weight }}</td>
-                                                    <td>{{ $food->price }}</td>
-                                                    <td>{{ $food->total_price }}</td>
+                                                    <td>{{ number_format($food->price) }}</td>
+                                                    <td>{{ number_format($food->total_price) }}</td>
                                                     <td>
                                                         <a class="btn btn-primary" href="{{route('food.edit', [$food->id])}}">Edit</a>
                                                     </td>
@@ -127,8 +130,8 @@
                                                     <td>{{ $key + 1 }}</td>
                                                     <td>{{ $extra_charge->label }}</td>
                                                     <td>{{ $extra_charge->quantity }}</td>
-                                                    <td>{{ $extra_charge->price }}</td>
-                                                    <td>{{ $extra_charge->total_price }}</td>
+                                                    <td>{{ number_format($extra_charge->price) }}</td>
+                                                    <td>{{ number_format($extra_charge->total_price) }}</td>
                                                     <td>
                                                         <a class="btn btn-primary" href="{{route('extra.edit', [$extra_charge->id])}}">Edit</a>
                                                     </td>
