@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-    @section('title','create sale')
+    @section('title','create extra charges')
 
     @section('content')
 
@@ -11,13 +11,27 @@
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
             @endif
 
-            <form action="{{ route('sale.store') }}" method="POST">@csrf
+            <form action="/extra/store/{{$band_id}}" method="POST">@csrf
                 <div class="module">
                     <div class="module-head">
-                        <h3>Create Sale</h3>
+                        <h3>Create extra charges</h3>
                     </div>
                     <div class="module-body">
                         <div class="control-group">
+                            <label class="control-label">Label</label>
+                            <div class="controls">
+                                <input type="text" name="label" class="span8 @error('label') border-red @enderror" 
+                                    placeholder="label" 
+                                    value="{{ old('label') }}"
+                                >
+
+                                @error('label')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong style="color: red; !important">{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                
+                            </div>
                             <label class="control-label">Quantity</label>
                             <div class="controls">
                                 <input type="number" name="quantity" class="span8 @error('quantity') border-red @enderror" 
@@ -43,36 +57,7 @@
                                         <strong style="color: red; !important">{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                            <label class="control-label">Band</label>
-                            <div class="controls">
-                                <select name="band" class="form-control @error('band') is-invalid @enderror">
-                                    <option value="">Choose a band</value>
-                                    @foreach($bands as $band)
-                                        <option value="{{$band->id}}">
-                                            {{$band->label}}
-                                        </option>
-                                    @endforeach
-                                </select>
-
-                                @error('band')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong style="color: red; !important">{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <label class="control-label">Buyer</label>
-                            <div class="controls">
-                                <input type="text" name="buyer" class="span8 @error('buyer') border-red @enderror" 
-                                    placeholder="buyer" 
-                                    value="{{ old('buyer') }}"
-                                >
-
-                                @error('buyer')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong style="color: red; !important">{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                
                             </div>
 
                             <div class="controls">

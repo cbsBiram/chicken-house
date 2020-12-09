@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\ExtraCharge;
+
 class ExtraCharge extends Model
 {
     use HasFactory;
@@ -15,6 +17,14 @@ class ExtraCharge extends Model
      * @var array
      */
     protected $fillable = [
-        'label', 'price', 'quantity', 'type', 'band_id'
+        'label', 'price', 'quantity', 'total_price', 'band_id'
     ];
+
+    public function findExtra($id) {
+        return ExtraCharge::find($id);
+    }
+
+    public function deleteExtra($id) {
+        return ExtraCharge::find($id)->delete();
+    }
 }
