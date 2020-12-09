@@ -48,7 +48,7 @@ class User extends Authenticatable
     }
 
     public function allUsers() {
-        return User::latest()->paginate($this->limit);
+        return User::all();
     }
 
     public function findUser($id) {

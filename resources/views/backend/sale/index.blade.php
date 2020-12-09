@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="module-body">
-                    <table class="table table-striped">
+                    <table class="datatable-1 table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
