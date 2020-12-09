@@ -128,9 +128,9 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Label</th>
-                                                <th>Type</th>
                                                 <th>Quantity</th>
                                                 <th>Price (F CFA)</th>
+                                                <th>Total Price (F CFA)</th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
@@ -142,16 +142,16 @@
                                                 <tr>
                                                     <td>{{ $key + 1 }}</td>
                                                     <td>{{ $extra_charge->label }}</td>
-                                                    <td>{{ $extra_charge->type }}</td>
                                                     <td>{{ $extra_charge->quantity }}</td>
                                                     <td>{{ $extra_charge->price }}</td>
+                                                    <td>{{ $extra_charge->total_price }}</td>
                                                     <td>
-                                                        <a class="btn btn-primary" href="{{route('extra_charge.edit', [$extra_charge->id])}}">Edit</a>
+                                                        <a class="btn btn-primary" href="{{route('extra.edit', [$extra_charge->id])}}">Edit</a>
                                                     </td>
                                                     <td>
                                                         <form id="delete-form{{$extra_charge->id}}"
                                                             method="POST"
-                                                            action="{{route('extra_charge.destroy', [$extra_charge->id])}}"    
+                                                            action="{{route('extra.destroy', [$extra_charge->id])}}"    
                                                         >@csrf
                                                             {{ method_field('DELETE') }}
                                                             <a href="#"
@@ -177,7 +177,7 @@
                                         </tbody>
                                     </table>
                                     <div class="mt-2">
-                                        <a class="btn btn-success" href="{{route('extra.create')}}">Add new</a>
+                                        <a class="btn btn-success" href="/extra/create/{{$band->id}}">Add new</a>
                                     </div>
                                 </div>
                             </div>

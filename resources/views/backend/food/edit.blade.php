@@ -96,7 +96,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-lable" for="price">Price</label>
+                            <label class="control-label" for="price">Price</label>
                             <div class="controls">
                                 <input type="text" name="price" class="span8 @error('price') border-red @enderror" 
                                     placeholder="price" 
@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-lable" for="weight">Weight</label>
+                            <label class="control-label" for="weight">Weight</label>
                             <div class="controls"> 
                                 <input type="text" name="weight" class="span8 @error('weight') border-red @enderror" 
                                     placeholder="weight" 
@@ -121,7 +121,7 @@
                                 >
                             </div>
 
-                            @error('provider')
+                            @error('weight')
                                 <span class="invalid-feedback" role="alert">
                                     <strong style="color: red; !important">{{ $message }}</strong>
                                 </span>

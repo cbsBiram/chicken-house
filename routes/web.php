@@ -34,4 +34,6 @@ Route::group(['middleware' => 'isAdmin'], function () {
    Route::resource('user', 'UserController');
    Route::get('food/create/{bandId}', 'AlimentController@createFood'); 
    Route::post('food/store/{bandId}', 'AlimentController@storeFood'); 
+   Route::get('extra/create/{bandId}', 'ExtraChargeController@createExtra'); 
+   Route::post('extra/store/{bandId}', 'ExtraChargeController@storeExtra'); 
 });

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Band;
+use App\Models\ExtraCharge;
 
 class ExtraChargeController extends Controller
 {
@@ -26,6 +28,11 @@ class ExtraChargeController extends Controller
         //
     }
 
+    public function createExtra($band_id)
+    {
+        return view('backend.extra.create', compact('band_id'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,6 +42,24 @@ class ExtraChargeController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function storeExtra(Request $request, $band_id) {
+        $this->validate($request, [
+            'quantity' => 'required|integer',
+            'label' => 'required',
+            'price' => 'required'
+        ]);
+
+        $extra = new ExtraCharge;
+        $extra->quantity = $request->get('quantity');
+        $extra->label = $request->get('label');
+        $extra->price = $request->get('price');
+        $extra->total_price = $request->get('price') * $request->get('quantity');
+        $extra->band_id = $band_id;
+        $extra->save();
+
+        return redirect()->back()->with('message', 'Extras charges created successfully');
     }
 
     /**
@@ -56,7 +81,9 @@ class ExtraChargeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $extra = (new ExtraCharge)->findExtra($id);
+        $bands = (new Band)->allBand();
+        return view('backend.extra.edit', compact('extra', 'bands'));
     }
 
     /**
@@ -68,7 +95,23 @@ class ExtraChargeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'quantity' => 'required|integer',
+            'label' => 'required',
+            'price' => 'required',
+            'band' => 'required'
+        ]);
+        
+        
+        $extra = (new ExtraCharge)->findExtra($id);
+        $extra->quantity = $request->get('quantity');
+        $extra->label = $request->get('label');
+        $extra->price = $request->get('price');
+        $extra->total_price = $request->get('price') * $request->get('quantity');
+        $extra->band_id = $request->get('band');
+        $extra ->save();
+
+        return redirect()->route('band.index')->with('message', 'Extras charges updated successfully');
     }
 
     /**
@@ -79,6 +122,7 @@ class ExtraChargeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        (new ExtraCharge)->deleteExtra($id);
+        return redirect()->route('band.index')->with('message', 'Extras charges deleted successfully!');
     }
 }

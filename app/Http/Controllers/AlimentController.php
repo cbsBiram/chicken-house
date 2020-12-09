@@ -60,8 +60,8 @@ class AlimentController extends Controller
         $food->price = $request->get('price');
         $food->total_price = $request->get('price') * $request->get('quantity');
         $food->band_id = $band_id;
-
         $food->save();
+
         return redirect()->back()->with('message', 'Food charges created successfully');
     }
 
