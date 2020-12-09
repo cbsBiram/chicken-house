@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="module-body">
-                    <table class="table table-striped">
+                    <table class="datatable-1 table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -43,7 +43,7 @@
                                     <td>{{ $band->status }}</td>
                                     <td>{{ $band->created_at }}</td>
                                     <td>
-                                        <a class="btn btn-secondary" href="{{route('band.show', [$band->id])}}">View</a>
+                                        <a class="btn btn-warning" href="{{route('band.show', [$band->id])}}">View</a>
                                     </td>
                                     <td>
                                         <a class="btn btn-primary" href="{{route('band.edit', [$band->id])}}">Edit</a>

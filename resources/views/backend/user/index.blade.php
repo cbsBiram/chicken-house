@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="module-body">
-                    <table class="table table-striped">
+                    <table class="datatable-1 table table-striped display">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -68,9 +68,6 @@
                             <td>No users to display</td>
                         @endif
                     </table>
-                    <div class="pagination pagination-centered">
-                        {{ $users->links() }}
-                    </div>
                 </div>
             </div>
                 		
