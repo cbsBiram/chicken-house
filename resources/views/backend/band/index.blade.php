@@ -39,7 +39,7 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $band->label }}</td>
                                     <td>{{ $band->quantity }}</td>
-                                    <td>{{ $band->unit_price }}</td>
+                                    <td>{{ number_format($band->unit_price) }}</td>
                                     <td>{{ $band->status }}</td>
                                     <td>{{ $band->created_at }}</td>
                                     <td>
