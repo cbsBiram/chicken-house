@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 use App\Models\Band;
 
-class everyFortnight extends Command
+class EveryFortnight extends Command
 {
     /**
      * The name and signature of the console command.
