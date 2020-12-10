@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,14 @@ Auth::routes([
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/test', function() {
+    $today = Carbon::today();
+    $start = Carbon::parse('2020-12-05 20:47:26');
+    $days = $today->diffInDays($start);
+
+    dd($days);
+});
 
 Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/', function () {
