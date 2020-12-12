@@ -25,6 +25,10 @@ class Aliment extends Model
         return Aliment::find($id);
     }
 
+    public function findFoodsByBand($bandId) {
+        return Aliment::where('band_id', $bandId)->get();
+    }
+
     public function deleteFood($id) {
         return Aliment::find($id)->delete();
     }

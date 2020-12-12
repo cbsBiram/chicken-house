@@ -32,6 +32,10 @@ class Sale extends Model
         return Sale::find($id);
     }
 
+    public function findSalesByBand($bandId) {
+        return Sale::where('band_id', $bandId)->get();
+    }
+
     public function deleteSale($id) {
         return Sale::find($id)->delete();
     }
