@@ -103,8 +103,8 @@ class SaleController extends Controller
         $sale->band_id = $request->get('band');
         $sale->buyer = $request->get('buyer');
         $sale->status = $request->get('status');
-
         $sale->total_price = $request->get('quantity') * $request->get('price');
+        
         $sale->save();
 
         if ($sale->status == "paid") {

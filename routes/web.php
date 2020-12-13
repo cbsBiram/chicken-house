@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 use Carbon\Carbon;
 
+use App\Models\Band;
+use App\Models\Sale;
+use App\Models\User;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,13 +35,18 @@ Route::get('/test', function() {
     $start = Carbon::parse('2020-12-05 20:47:26');
     $days = $today->diffInDays($start);
 
-    dd($days);
+    dd($days); 
 });
 
 Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/', function () {
-        return view('admin.index');
+        $nb_band = (new Band)->allBand()->count();
+        $nb_user = (new User)->allUsers()->count();
+        $sales_figures = (new Sale)->allSale()->sum('total_price');
+        
+        return view('admin.index', compact('nb_band', 'nb_user', 'sales_figures'));
     });
+
    Route::resource('band', 'BandController'); 
    Route::resource('extra', 'ExtraChargeController'); 
    Route::resource('food', 'AlimentController'); 
