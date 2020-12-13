@@ -104,30 +104,18 @@ class SaleController extends Controller
         $sale->buyer = $request->get('buyer');
         $sale->status = $request->get('status');
         $sale->total_price = $request->get('quantity') * $request->get('price');
-        
+
         $sale->save();
 
         if ($sale->status == "paid") {
-            $total_sales_price = 0;
-            $total_foods_price = 0;
-            $total_extras_price = 0;
-            $sales_band = (new Sale)->findSalesByBand($band_id);
-            $foods_band = (new Aliment)->findFoodsByBand($band_id);
-            $extras_band = (new ExtraCharge)->findExtrasByBand($band_id);
-            
-            foreach ($sales_band as $s) {
-                $total_sales_price += $s->total_price;
-            }
-            foreach ($foods_band as $food) {
-                $total_foods_price += $food->total_price;
-            }
-            foreach ($extras_band as $extra) {
-                $total_extras_price += $extra->total_price;
-            }
-
             $band = (new Band)->findBand($band_id);
+
+            $total_sales_price = $band->sales->sum('total_price');
+            $total_foods_price = $band->foods->sum('total_price');
+            $total_extras_price = $band->extra_charges->sum('total_price');
             $band->benefits = $total_sales_price - ($band->purchase_price + $total_foods_price
                                 + $total_extras_price);
+                                
             $band->save();
         }
 

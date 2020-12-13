@@ -24,8 +24,8 @@ class ExtraCharge extends Model
         return ExtraCharge::find($id);
     }
 
-    public function findExtrasByBand($bandId) {
-        return ExtraCharge::where('band_id', $bandId)->get();
+    public function findExtrasByMonth($month) {
+        return ExtraCharge::whereMonth('updated_at', $month)->get();
     }
 
     public function deleteExtra($id) {
