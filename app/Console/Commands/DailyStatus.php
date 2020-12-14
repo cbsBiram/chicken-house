@@ -8,14 +8,14 @@ use Carbon\Carbon;
 
 use App\Models\Band;
 
-class EveryFortnight extends Command
+class DailyStatus extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'fortnight:update';
+    protected $signature = 'status:daily';
 
     /**
      * The console command description.
@@ -47,17 +47,17 @@ class EveryFortnight extends Command
             $start = Carbon::parse($band->created_date);
             $days = $today->diffInDays($start);
 
-            if ($band->status == "start" && $days >= 14) {
+            if ($band->status == "start" && $days >= 1) {
                 $band->status = "growth";
             }
-            elseif ($band->status == "growth" && $days >= 29) {
+            elseif ($band->status == "growth" && $days >= 2) {
                 $band->status = "finish";
             }
-            elseif ($band->status == "finish" && days >= 44) {
+            elseif ($band->status == "finish" && days >= 3) {
                 $band->status = "mature";
             }
             $band->save();
         }
-        echo 'Operation is done';
+        $this->info('Operation is done');
     }
 }
