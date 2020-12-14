@@ -3,7 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\Aliment;
+use App\Models\Band;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 
 class AlimentFactory extends Factory
 {
@@ -22,7 +25,10 @@ class AlimentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'quantity' => rand(1, 10),
+            'price' => 15000,
+            'weight' => 50,
+            'band_id' => Band::all()->random()->id,
         ];
     }
 }

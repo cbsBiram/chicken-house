@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Band;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BandFactory extends Factory
@@ -22,7 +23,12 @@ class BandFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'label' => $this->faker->word,
+            'quantity' => rand(1, 500),
+            'loss' => 0,
+            'unit_price' => 500,
+            'provider' => $this->faker->company,
+            'user_id' => User::all()->random()->id,
         ];
     }
 }
