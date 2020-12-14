@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\EveryFortnight::class,
+        Commands\DailyStatus::class,
     ];
 
     /**
@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('fortnight:update')->daily();
+        $schedule->command('status:daily')->everyMinute();
     }
 
     /**
