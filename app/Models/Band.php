@@ -43,7 +43,31 @@ class Band extends Model
         return Band::find($id);
     }
 
+    public function findBandsByMonth($month) {
+        return Band::whereMonth('updated_at', $month)->get();
+    }
+
     public function deleteBand($id) {
         return Band::find($id)->delete();
+    }
+
+    public function perfByMonth() {
+        $performances = [];
+        for ($i=1; $i < 13; $i++) {
+            $total_sales_cost = (new Sale)->findSalesByMonth($i)->sum('total_price');
+            $total_foods_cost = (new Aliment)->findFoodsByMonth($i)->sum('total_price');
+            $total_extras_cost = (new ExtraCharge)->findExtrasByMonth($i)->sum('total_price');
+            $total_bands_cost = (new Band)->findBandsByMonth($i)->sum('purchase_price');
+
+            $total_charges = $total_bands_cost + $total_foods_cost + $total_extras_cost;
+            if ($total_charges == 0) {
+                $performance = 0;
+            } else {
+                $performance = number_format($total_sales_cost / $total_charges * 100);
+            }
+            array_push($performances, $performance);
+        }
+
+        return $performances;
     }
 }
