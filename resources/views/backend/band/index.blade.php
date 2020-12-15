@@ -22,10 +22,10 @@
                             <tr>
                                 <th>#</th>
                                 <th>Label</th>
-                                <th>Quantity</th>
-                                <th>Price (F CFA)</th>
+                                <th>Remaining</th>
+                                <th>Sold</th>
                                 <th>Status</th>
-                                <th>Created Date</th>
+                                <th>Price (F CFA)</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -38,10 +38,10 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $band->label }}</td>
-                                    <td>{{ $band->quantity }}</td>
-                                    <td>{{ number_format($band->unit_price) }}</td>
+                                    <td>{{ $band->remaining }}</td>
+                                    <td>{{ $band->sold }}</td>
                                     <td>{{ $band->status }}</td>
-                                    <td>{{ $band->created_at }}</td>
+                                    <td>{{ number_format($band->purchase_price) }}</td>
                                     <td>
                                         <a class="btn btn-warning" href="{{route('band.show', [$band->id])}}">View</a>
                                     </td>
