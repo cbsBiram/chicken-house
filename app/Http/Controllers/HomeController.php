@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Band;
+use App\Models\Sale;
+
 class HomeController extends Controller
 {
     /**
@@ -26,6 +29,16 @@ class HomeController extends Controller
         if(auth()->user()->is_admin == 1) {
             return redirect('/');
         }
-        return view('home');
+
+        $bands = (new Band)->allBand();
+        $sales = (new Sale)->allSale();
+
+        $sales_figure = $sales->sum('total_price');
+
+        $monthly_performance = (new Band)->perfByMonth();
+
+        $band_in_progress = Band::where('status', '!=', 'elapsed')->count();
+
+        return view('home', compact('bands', 'sales', 'sales_figure', 'band_in_progress', 'monthly_performance'));
     }
 }
