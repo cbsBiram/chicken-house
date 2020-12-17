@@ -25,6 +25,9 @@ Vue.use(BootstrapVue);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('dashboard-component', require('./components/DashboardComponent.vue').default);
+Vue.component('band-component', require('./components/BandComponent.vue').default);
+Vue.component('band-details-component', require('./components/BandDetailsComponent.vue').default);
+Vue.component('sale-component', require('./components/SaleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

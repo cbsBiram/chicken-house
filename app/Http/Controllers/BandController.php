@@ -115,4 +115,15 @@ class BandController extends Controller
         (new Band)->deleteBand($id);
         return redirect()->route('band.index')->with('message', 'Band deleted successfully!');
     }
+
+    /**
+     * Get all tbands for the frontend
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getBands() {
+        $bands = (new Band)->allBand();
+        return view('band', compact('bands'));
+    }
 }

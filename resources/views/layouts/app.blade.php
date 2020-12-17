@@ -80,16 +80,16 @@
 
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">
+            <a href="/home">
                 <i class="fa fa-home" aria-hidden="true"></i>Accueil
             </a>
-            <a href="#" >
+            <a href="/bands" >
                 <i class="fa fa-tasks" aria-hidden="true"></i>Bandes
             </a>
-            <a href="#">
+            <a href="/sales">
                 <i class="fa fa-id-card" aria-hidden="true"></i>Ventes
             </a>
-            <a href="#">
+            <a href="{{ route('logout') }}">
                 <i class="fa fa-sign-out" aria-hidden="true" style="color: red"></i>Deconnexion
             </a>
         </div>

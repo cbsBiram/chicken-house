@@ -204,7 +204,6 @@ import SaleModal from "./SaleModal.vue";
     props: ["bands", "sales", "salesFigure", "bandInProgress", "monthlyPerformance"],
     data() {
       return {
-        bands: this.bands,
         currentPage: 1,
         bandFields: [
             '#',
@@ -227,14 +226,12 @@ import SaleModal from "./SaleModal.vue";
                 key: 'sales_figure',
                 label: 'Chiffre d\'affaire (F CFA)',
                 thClass: 'font-weight-bold',
-                sortable: true,
                 formatter: "formatNumber"
             },
             'action'
         ],
         perPage: 5,
         pageOptions: [5, 10, 15],
-        sales: this.sales,
         saleFields: [
             '#',
             {
