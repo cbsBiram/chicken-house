@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/custom.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,14 +19,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="fixed">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
-                </a>
+                </a> 
+                <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776;</span>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -75,8 +78,26 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">
+                <i class="fa fa-home" aria-hidden="true"></i>Accueil
+            </a>
+            <a href="#" >
+                <i class="fa fa-tasks" aria-hidden="true"></i>Bandes
+            </a>
+            <a href="#">
+                <i class="fa fa-id-card" aria-hidden="true"></i>Ventes
+            </a>
+            <a href="#">
+                <i class="fa fa-sign-out" aria-hidden="true" style="color: red"></i>Deconnexion
+            </a>
+        </div>
+
+        <main class=" py-4">
+            <div id="main">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>
