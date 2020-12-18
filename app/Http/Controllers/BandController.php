@@ -117,7 +117,7 @@ class BandController extends Controller
     }
 
     /**
-     * Get all tbands for the frontend
+     * Get all bands for the frontend
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -125,5 +125,16 @@ class BandController extends Controller
     public function getBands() {
         $bands = (new Band)->allBand();
         return view('band', compact('bands'));
+    }
+
+    /**
+     * Get details of a band for the frontend
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getBandDetails($band_id) {
+        $band = Band::find($band_id);
+        return view('band-details', compact('band'));
     }
 }

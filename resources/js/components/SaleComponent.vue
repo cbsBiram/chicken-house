@@ -99,7 +99,7 @@
                                     {{ data }}
                                 </template>
                                 <!-- Actions -->
-                                <template v-slot:cell(action)="data">
+                                <!-- <template v-slot:cell(action)="data">
                                     <b-button id="view-button" variant="info" size="sm" block>
                                         <b-link 
                                         style="color:black"
@@ -110,15 +110,15 @@
                                         >Voir
                                         </b-link>
                                     </b-button>
-                                </template>
+                                </template> -->
                             </b-table>
                             <b-pagination
                                 v-model="currentPage"
                                 :total-rows="sales.length"
                                 :per-page="perPage"
                                 align="left"
-                                prev-text="<<"
-                                next-text=">>"
+                                prev-text="<"
+                                next-text=">"
                                 first-number
                                 last-number
                                 aria-controls="sale-table"
@@ -179,7 +179,7 @@ import moment from "moment";
                 formatter: "dateFormatter",
                 sortable: true,
             },
-            "action"
+            // "action"
         ],
         perPage: 5,
         pageOptions: [5, 10, 15],
@@ -207,6 +207,3 @@ import moment from "moment";
     },
   }
 </script>
-
-<style>
-</style>

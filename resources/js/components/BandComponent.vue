@@ -104,8 +104,7 @@
                                         <b-link 
                                         style="color:black"
                                         :to="{ 
-                                            path: '/band-details', 
-                                            query: { id: data.id } 
+                                            path: '/band/' + data.item.id, 
                                         }"
                                         >Voir
                                         </b-link>
@@ -117,8 +116,8 @@
                                 :total-rows="bands.length"
                                 :per-page="perPage"
                                 align="left"
-                                prev-text="<<"
-                                next-text=">>"
+                                prev-text="<"
+                                next-text=">"
                                 first-number
                                 last-number
                                 aria-controls="band-table"
@@ -220,6 +219,3 @@ import moment from "moment";
     },
   }
 </script>
-
-<style>
-</style>

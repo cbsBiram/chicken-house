@@ -112,8 +112,8 @@
                                 :total-rows="bands.length"
                                 :per-page="perPage"
                                 align="left"
-                                prev-text="<<"
-                                next-text=">>"
+                                prev-text="<"
+                                next-text=">"
                                 first-number
                                 last-number
                                 aria-controls="band-table"
@@ -176,8 +176,8 @@
                                 v-model="currentPage"
                                 :total-rows="sales.length"
                                 :per-page="perPage"
-                                prev-text="<<"
-                                next-text=">>"
+                                prev-text="<"
+                                next-text=">"
                                 first-number
                                 last-number
                                 align="left"

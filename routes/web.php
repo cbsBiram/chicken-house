@@ -40,6 +40,7 @@ Route::get('/test', function() {
 
 
 Route::get('bands', 'BandController@getBands')->middleware('auth');
+Route::get('band/{bandId}', 'BandController@getBandDetails')->middleware('auth');
 Route::get('sales', 'SaleController@getSales')->middleware('auth');
 
 Route::group(['middleware' => 'isAdmin'], function () {
