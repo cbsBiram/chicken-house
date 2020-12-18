@@ -1,3 +1,16 @@
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.container {
+    margin-top: 60px;
+}
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -53,5 +66,30 @@
     }
     .sidenav a {
         font-size: 18px;
+    }
+}
+
+.nav-item.dropdown {
+    font-family: "Montserrat";
+    font-size: 18px;
+    padding: 10px;
+}
+
+.fa {
+    margin-right: 5px;
+    font-size: 22px
+}
+
+.navbar-nav.ml-auto {
+    margin-right: 60px !important;
+}
+
+.navbar-nav.mr-auto {
+    margin-left: 60px !important;
+}
+
+@media screen and (min-width: 1200px) {
+    .navbar-brand {
+        padding-left: 100px;
     }
 }

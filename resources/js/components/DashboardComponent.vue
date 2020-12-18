@@ -8,18 +8,18 @@
                 <div class="card-body">
                     <div class="row mb-3">
                 <div class="col-xl-4 col-sm-6 py-2">
-                    <div class="card bg-success text-white h-100">
+                    <div class="card bg-success text-white h-100 general">
                         <div class="card-body bg-success">
                             <div class="rotate" >
                                 <i class="fa fa-money fa-4x"></i>
                             </div>
-                            <h6 class="text-uppercase">Chiffre d'Affaire global</h6>
+                            <h6 class="text-uppercase">Chiffre d'Affaire global en F CFA</h6>
                             <h1 class="display-4">{{ Number(salesFigure).toLocaleString() }}</h1>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 py-2">
-                    <div class="card text-white bg-danger h-100">
+                    <div class="card text-white bg-danger h-100 general">
                         <div class="card-body bg-danger">
                             <div class="rotate">
                                 <i class="fa fa-list fa-4x"></i>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 py-2">
-                    <div class="card text-white bg-info h-100">
+                    <div class="card text-white bg-info h-100 general">
                         <div class="card-body bg-info">
                             <div class="rotate">
                                 <i class="fa fa-spinner fa-4x"></i>
@@ -51,6 +51,11 @@
                 <div class="card-body">
                     <div class="mb-3 col-sm-12">
                         <line-chart :chartdata="chartData" :styles="myStyles" :options="options"></line-chart>
+                    </div>
+                    <div class="mb-2 col-sm-12" style="text-align: center;">
+                        <b-badge href="#" variant="info">
+                            <span style="font-size: 14px;">Rendement = Gains / Charges en %</span>
+                        </b-badge>
                     </div>
                 </div>
             </div>
@@ -312,13 +317,19 @@ import SaleModal from "./SaleModal.vue";
 </script>
 
 <style>
-.rotate i {
-    color: rgba(20, 20, 20, 0.15);
-    position: absolute;
-    left: 0;
-    left: auto;
-    right: 9px;
-    bottom: 5px;
-    display: block;
-}
+    .general {
+        border-radius: 15px !important;
+        border-color: transparent;
+        overflow: hidden;
+    }
+
+    .rotate i {
+        color: rgba(20, 20, 20, 0.15);
+        position: absolute;
+        left: 0;
+        left: auto;
+        right: 9px;
+        bottom: 5px;
+        display: block;
+    }
 </style>
