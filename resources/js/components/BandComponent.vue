@@ -104,7 +104,7 @@
                                         <b-link 
                                         style="color:black"
                                         :to="{ 
-                                            path: '/band/' + data.item.id, 
+                                            path: '/band-details/' + data.item.id, 
                                         }"
                                         >Voir
                                         </b-link>

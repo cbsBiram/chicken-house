@@ -42,10 +42,12 @@ class DailyStatus extends Command
     public function handle()
     {
         $bands = Band::all();
-        $today = Carbon::today();
+        $today = Carbon::now();
         foreach ($bands as $key => $band) {
-            $start = Carbon::parse($band->created_date);
+            $start = Carbon::parse($band->created_at);
             $days = $today->diffInDays($start);
+
+            $this->info($days);
 
             if ($band->status == "start" && $days >= 1) {
                 $band->status = "growth";
@@ -53,11 +55,11 @@ class DailyStatus extends Command
             elseif ($band->status == "growth" && $days >= 2) {
                 $band->status = "finish";
             }
-            elseif ($band->status == "finish" && days >= 3) {
+            elseif ($band->status == "finish" && $days >= 3) {
                 $band->status = "mature";
             }
             $band->save();
         }
-        $this->info('Operation is done');
+        $this->info('Operation is done.');
     }
 }

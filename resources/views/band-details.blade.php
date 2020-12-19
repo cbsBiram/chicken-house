@@ -4,8 +4,8 @@
 
 <band-details-component
     :band = "{{ $band }}"
-    :foods = "{{ $band->foods }}"
-    :extras = "{{ $band->extra_charges }}"
+    :foods = "{{ $foods }}"
+    :extras = "{{ $extra_charges }}"
 >
 </band-details-component>
 

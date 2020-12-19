@@ -135,6 +135,8 @@ class BandController extends Controller
      */
     public function getBandDetails($band_id) {
         $band = Band::find($band_id);
-        return view('band-details', compact('band'));
+        $foods = $band->foods();
+        $extras = $band->extra_charges();
+        return view('band-details', compact('band'), 'foods', 'extras');
     }
 }
