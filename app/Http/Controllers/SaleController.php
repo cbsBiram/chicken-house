@@ -130,6 +130,18 @@ class SaleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        (new Sale)->deleteSale($id);
+        return redirect()->route('sale.index')->with('message', 'Sale deleted successfully!');
+    }
+
+    /**
+     * Get all sales for the frontend
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getSales() {
+        $sales = (new Sale)->allSale();
+        return view('sale', compact('sales'));
     }
 }

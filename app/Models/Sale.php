@@ -25,7 +25,7 @@ class Sale extends Model
     }
 
     public function allSale() {
-        return Sale::orderBy('updated_at', 'desc')->get();
+        return Sale::orderBy('updated_at', 'desc')->with(['band'])->get();
     }
 
     public function findSale($id) {

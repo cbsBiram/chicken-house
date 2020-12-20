@@ -38,6 +38,11 @@ Route::get('/test', function() {
     dd($days); 
 });
 
+
+Route::get('bands', 'BandController@getBands')->middleware('auth');
+Route::get('band-details/{bandId}', 'BandController@getBandDetails')->middleware('auth');
+Route::get('sales', 'SaleController@getSales')->middleware('auth');
+
 Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/', function () {
         $nb_band = (new Band)->allBand()->count();
