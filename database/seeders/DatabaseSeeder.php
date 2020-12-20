@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UserSeeder::class,
-            BandSeeder::class,
-            AlimentSeeder::class,
-            ExtraChargeSeeder::class,
-            SaleSeeder::class,
-        ]);
+        // $this->call([
+        //     UserSeeder::class,
+        //     BandSeeder::class,
+        //     AlimentSeeder::class,
+        //     ExtraChargeSeeder::class,
+        //     SaleSeeder::class,
+        // ]);
         $admin = new User();
         $admin->name = "admin";
         $admin->email = "admin123@gmail.com";
