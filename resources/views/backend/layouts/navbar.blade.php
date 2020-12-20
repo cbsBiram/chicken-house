@@ -18,7 +18,11 @@
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                        <i class="icon-reorder shaded"></i></a><a class="brand" href="index.html">Chicken House</a>
+                        <i class="icon-reorder shaded"></i>
+                    </a>
+                    <a class="brand" href="/">
+                        Chicken House
+                    </a>
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                         <ul class="nav pull-right">
                             <li><a href="#">{{ auth()->user()->name }}</a></li> 
@@ -26,10 +30,6 @@
                                 <img src="{{ asset('edmin/code/images/user.png') }}" class="nav-avatar" />
                                 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Your Profile</a></li>
-                                    <li><a href="#">Edit Profile</a></li>
-                                    <li><a href="#">Account Settings</a></li>
-                                    <li class="divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();document.getElementById('logout-form').submit();"
