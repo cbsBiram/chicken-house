@@ -99,6 +99,7 @@ class BandController extends Controller
         $band->unit_price = $request->get('unit_price');
         $band->purchase_price = $request->get('unit_price') * $request->get('quantity');
         $band->loss = $request->get('loss');
+        $band->status = $request->get('status');
         $band->provider = $request->get('provider');
         $band ->save();
 

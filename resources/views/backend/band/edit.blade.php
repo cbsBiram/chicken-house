@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-lable" for="quantity">Quantity</label>
+                            <label class="control-label" for="quantity">Quantity</label>
                             <div class="controls">
                                 <input type="number" name="quantity" class="span8 @error('quantity') border-red @enderror" 
                                     placeholder="quantity" 
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-lable" for="unit_price">Unit Price</label>
+                            <label class="control-label" for="unit_price">Unit Price</label>
                             <div class="controls">
                                 <input type="text" name="unit_price" class="span8 @error('unit_price') border-red @enderror" 
                                     placeholder="unit_price" 
@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-lable" for="loss">Loss</label>
+                            <label class="control-label" for="loss">Loss</label>
                             <div class="controls">
                                 <input type="number" name="loss" class="span8 @error('loss') border-red @enderror" 
                                     placeholder="loss" 
@@ -89,8 +89,61 @@
 
                         </div>
 
+                        <div class="controls">
+                            <label class="control-label" for="status">Status</label>
+                            <select name="status" class="form-control @error('status') is-invalid @enderror">
+                                <option value="">Choose a status</value>
+                                <option 
+                                    value="start"
+                                    @if ($band->status == "start")
+                                        selected
+                                    @endif
+                                >
+                                    Start
+                                </option>
+                                <option 
+                                    value="growth"
+                                    @if ($band->status == "growth")
+                                        selected
+                                    @endif
+                                >
+                                    Growth
+                                </option>
+                                <option 
+                                    value="finish"
+                                    @if ($band->status == "finish")
+                                        selected
+                                    @endif
+                                >
+                                    Finish
+                                </option>
+                                <option 
+                                    value="mature"
+                                    @if ($band->status == "mature")
+                                        selected
+                                    @endif
+                                >
+                                    Mature
+                                </option>
+                                <option 
+                                    value="elapsed"
+                                    @if ($band->status == "elapsed")
+                                        selected
+                                    @endif
+                                >
+                                    Elapsed
+                                </option>
+                            </select>
+
+                            @error('band')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong style="color: red; !important">{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
                         <div class="control-group">
-                            <label class="control-lable" for="provider">Provider</label>
+                            <label class="control-label" for="provider">Provider</label>
                             <div class="controls"> 
                                 <input type="text" name="provider" class="span8 @error('provider') border-red @enderror" 
                                     placeholder="provider" 
