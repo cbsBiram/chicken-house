@@ -28,15 +28,15 @@ class Band extends Model
     }
 
     public function foods() {
-        return $this->hasMany(Aliment::class);
+        return $this->hasMany(Aliment::class)->orderBy('updated_at', 'desc');
     }
 
     public function extra_charges() {
-        return $this->hasMany(ExtraCharge::class);
+        return $this->hasMany(ExtraCharge::class)->orderBy('updated_at', 'desc');
     }
 
     public function allBand() {
-        return Band::all();
+        return Band::orderBy('updated_at', 'desc')->get();
     }
 
     public function findBand($id) {

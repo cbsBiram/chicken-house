@@ -12,19 +12,31 @@
                     <div class="btn-controls">
                         <h4>{{ $band->label }}</h4>
                         <div class="btn-box-row row-fluid">
-                            
                             <a href="#" class="btn-box-darker big span4">
                                 <i class=" icon-random"></i>
                                 <b>{{$band->status}}</b>
                                 <p class="text-muted">Status</p>
-                            </a><a href="#" class="btn-box-darker big span4">
-                                <i class="icon-user"></i>
-                                <b>{{$band->loss}}</b>
-                                <p class="text-muted">Number of losses</p>
+                            </a>
+                            <a href="#" class="btn-box-darker big span4">
+                                <i class="icon-group"></i>
+                                <b>{{$band->quantity}}</b>
+                                <p class="text-muted">Quantity</p>
                             </a>
                             <a href="#" class="btn-box-darker big span4">
                                 <i class="icon-money"></i><b>{{ number_format($band->benefits) }}</b>
                                 <p class="text-muted">Benefits</p>
+                            </a>
+                        </div>
+                        <div class="btn-box-row row-fluid">
+                            <a href="#" class="btn-box-darker big span4">
+                                <i class=" icon-exchange"></i>
+                                <b>{{$band->sold}}</b>
+                                <p class="text-muted">Number of sold subjects</p>
+                            </a>
+                            <a href="#" class="btn-box-darker big span4">
+                                <i class="icon-user"></i>
+                                <b>{{$band->loss}}</b>
+                                <p class="text-muted">Number of losses</p>
                             </a>
                         </div>
                     </div>
@@ -46,8 +58,6 @@
                                                 <th>#</th>
                                                 <th>Type</th>
                                                 <th>Quantity</th>
-                                                <th>Quantity consumed</th>
-                                                <th>Weight (kg)</th>
                                                 <th>Price (F CFA)</th>
                                                 <th>Total Price (F CFA)</th>
                                                 <th></th>
@@ -62,8 +72,6 @@
                                                     <td>{{ $key + 1 }}</td>
                                                     <td>{{ $food->type }}</td>
                                                     <td>{{ $food->quantity }}</td>
-                                                    <td>{{ $food->quantity_consumed }}</td>
-                                                    <td>{{ $food->weight }}</td>
                                                     <td>{{ number_format($food->price) }}</td>
                                                     <td>{{ number_format($food->total_price) }}</td>
                                                     <td>

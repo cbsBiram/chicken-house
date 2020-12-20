@@ -115,4 +115,28 @@ class BandController extends Controller
         (new Band)->deleteBand($id);
         return redirect()->route('band.index')->with('message', 'Band deleted successfully!');
     }
+
+    /**
+     * Get all bands for the frontend
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getBands() {
+        $bands = (new Band)->allBand();
+        return view('band', compact('bands'));
+    }
+
+    /**
+     * Get details of a band for the frontend
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getBandDetails($band_id) {
+        $band = Band::find($band_id);
+        $foods = $band->foods();
+        $extras = $band->extra_charges();
+        return view('band-details', compact('band'), 'foods', 'extras');
+    }
 }

@@ -22,8 +22,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Band</th>
-                                <th>Quantity</th>
-                                <th>Price (F CFA)</th>
+                                <th>Total Price (F CFA)</th>
                                 <th>Status</th>
                                 <th>Buyer</th>
                                 <th></th>
@@ -36,9 +35,10 @@
                                 @foreach ($sales as $key=>$sale)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $sale->band->label }}</td>
-                                    <td>{{ $sale->quantity }}</td>
-                                    <td>{{ number_format($sale->price) }}</td>
+                                    <td>
+                                        <a href="{{ route('band.show', [$sale->band->id]) }}">{{ $sale->band->label }}</a>
+                                    </td>
+                                    <td>{{ number_format($sale->total_price) }}</td>
                                     <td>{{ $sale->status }}</td>
                                     <td>{{ $sale->buyer }}</td>
                                     <td>
