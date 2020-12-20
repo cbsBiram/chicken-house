@@ -49,13 +49,13 @@ class DailyStatus extends Command
 
             $this->info($days);
 
-            if ($band->status == "start" && $days >= 1) {
+            if ($band->status == "start" && $days >= 14) {
                 $band->status = "growth";
             }
-            elseif ($band->status == "growth" && $days >= 2) {
+            elseif ($band->status == "growth" && $days >= 29) {
                 $band->status = "finish";
             }
-            elseif ($band->status == "finish" && $days >= 3) {
+            elseif ($band->status == "finish" && $days >= 44) {
                 $band->status = "mature";
             }
             $band->save();

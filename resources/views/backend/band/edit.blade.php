@@ -47,7 +47,7 @@
                                 >
                             </div>
 
-                            @error('quanity')
+                            @error('quantity')
                                 <span class="invalid-feedback" role="alert">
                                     <strong style="color: red; !important">{{ $message }}</strong>
                                 </span>
@@ -65,6 +65,23 @@
                             </div>
 
                             @error('unit_price')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong style="color: red; !important">{{ $message }}</strong>
+                                </span>
+                            @enderror      
+
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-lable" for="loss">Loss</label>
+                            <div class="controls">
+                                <input type="number" name="loss" class="span8 @error('loss') border-red @enderror" 
+                                    placeholder="loss" 
+                                    value="{{$band->loss}}" 
+                                >
+                            </div>
+
+                            @error('loss')
                                 <span class="invalid-feedback" role="alert">
                                     <strong style="color: red; !important">{{ $message }}</strong>
                                 </span>
