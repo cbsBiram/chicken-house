@@ -30,15 +30,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/test', function() {
-    $today = Carbon::today();
-    $start = Carbon::parse('2020-12-05 20:47:26');
-    $days = $today->diffInDays($start);
-
-    dd($days); 
-});
-
-
 Route::get('bands', 'BandController@getBands')->middleware('auth');
 Route::get('band-details/{bandId}', 'BandController@getBandDetails')->middleware('auth');
 Route::get('sales', 'SaleController@getSales')->middleware('auth');
