@@ -10,7 +10,8 @@ body {
     font-size: 13px;
     font-family: 'Open Sans', Arial, sans-serif;
     background: #fff;
-    color: #777
+    color: #777;
+    background: url(../images/bg.png) #eee;
 }
 
 h1,
@@ -101,17 +102,20 @@ blockquote small::before {
 }
 
 .wrapper {
-    background: url(../images/bg.png) #eee;
-    border-bottom: 1px solid #bbb;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    /* background: url(../images/bg.png) #eee; */
+    /* border-bottom: 1px solid #bbb; */
+    /* -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); */
+    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); */
     padding: 30px 0
 }
 
 .footer {
     color: #999;
-    padding: 30px 0 60px
+    padding: 20px 0 20px;
+    position: absolute;
+    bottom: 0;
+    left: 50%
 }
 
 .footer .nav li {
@@ -586,8 +590,6 @@ body [class*=" icon-"] {
 .btn-box:hover i {
     color: rgba(0, 0, 0, 0.4);
 }
-
-
 
 .btn-box-darker.big b {
     margin-top: 10px
