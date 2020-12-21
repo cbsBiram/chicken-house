@@ -69,6 +69,7 @@
     }
 }
 
+.nav-item.menu-item,
 .nav-item.dropdown {
     font-family: "Montserrat";
     font-size: 18px;

@@ -34,32 +34,38 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     @guest
-                    <!-- Authentication Links -->
+                        <!-- Authentication Links -->
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
                     @else
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link " href="/home" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item menu-item">
+                                <a class="nav-link" href="/" role="button">
                                     <i class="fa fa-home" aria-hidden="true"></i>Accueil
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link " href="/bands" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item menu-item">
+                                <a class="nav-link " href="/bands" role="button">
                                     <i class="fa fa-tasks" aria-hidden="true"></i>Bandes
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link " href="/sales" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item menu-item">
+                                <a class="nav-link " href="/sales" role="button">
                                     <i class="fa fa-id-card" aria-hidden="true"></i>Ventes
                                 </a>
                             </li>
                         </ul>
-
+                        
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                            
+
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}

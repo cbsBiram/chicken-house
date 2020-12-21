@@ -67,28 +67,6 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <b-row>
-                                <b-col sm="5" md="6" class="mt-2 mb-3">
-                                <b-form-group
-                                    label="Par page"
-                                    label-cols-sm="6"
-                                    label-cols-md="4"
-                                    label-cols-lg="3"
-                                    label-align-sm="right"
-                                    label-size="sm"
-                                    label-for="perPageSelect"
-                                    class="mb-2"
-                                    
-                                >
-                                    <b-form-select
-                                    v-model="perPage"
-                                    id="perPageSelect"
-                                    size="sm"
-                                    :options="pageOptions"
-                                    ></b-form-select>
-                                </b-form-group>
-                                </b-col>
-                            </b-row>
                             <b-table responsive outlined  head-variant="light"   
                                 class="mt-3" 
                                 id="band-table" 
@@ -96,8 +74,6 @@
                                 :fields="bandFields"
                                 :per-page="perPage"
                                 :current-page="currentPage"
-                                :sort-by.sync="sortBy"
-                                :sort-desc.sync="sortDesc"
                             >   
                                 <!-- Virtual column # -->
                                 <template #cell(#)="data">
@@ -135,28 +111,6 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <b-row>
-                                <b-col sm="5" md="6" class="mt-2 mb-3">
-                                <b-form-group
-                                    label="Par page"
-                                    label-cols-sm="6"
-                                    label-cols-md="4"
-                                    label-cols-lg="3"
-                                    label-align-sm="right"
-                                    label-size="sm"
-                                    label-for="perPageSelect"
-                                    class="mb-2"
-                                    
-                                >
-                                    <b-form-select
-                                    v-model="perPage"
-                                    id="perPageSelect"
-                                    size="sm"
-                                    :options="pageOptions"
-                                    ></b-form-select>
-                                </b-form-group>
-                                </b-col>
-                            </b-row>
                             <b-table responsive outlined  head-variant="light"
                                 class="mt-3" 
                                 id="sale-table" 
@@ -164,8 +118,6 @@
                                 :fields="saleFields"
                                 :per-page="perPage"
                                 :current-page="currentPage"
-                                :sort-by.sync="sortBy"
-                                :sort-desc.sync="sortDesc"
                             >   
                                 <!-- A virtual column -->
                                 <template #cell(#)="data">
@@ -236,7 +188,6 @@ import SaleModal from "./SaleModal.vue";
             'action'
         ],
         perPage: 5,
-        pageOptions: [5, 10, 15],
         saleFields: [
             '#',
             {
