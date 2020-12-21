@@ -118,6 +118,12 @@ blockquote small::before {
     left: 50%
 }
 
+@media screen and (max-width: 800px) {
+    .footer {
+        display: none;
+    }
+}
+
 .footer .nav li {
     float: left
 }
@@ -1874,7 +1880,7 @@ input[type=submit].btn-block {
 }
 
 .dataTables_wrapper {
-    overflow: hidden
+    overflow: scroll
 }
 
 .dataTables_wrapper select,
