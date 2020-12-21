@@ -57,8 +57,12 @@
                                                         e.preventDefault();
                                                     }
                                                 "
-                                            >
-                                                <input type="submit" class="btn btn-danger" value="Delete">
+                                            > 
+                                                @if ($user->id == auth()->user()->id)
+                                                    <span></span>
+                                                @else
+                                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                                @endif
                                             </a>
                                         </td>
                                     </tr>
@@ -75,7 +79,6 @@
            			 
     </div>
 </div> 
-</div>
 
 
 @endsection

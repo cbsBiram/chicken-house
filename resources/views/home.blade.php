@@ -7,7 +7,7 @@
     :sales = "{{ $sales }}"
     :sales-figure = "{{ $sales_figure }}"
     :band-in-progress = "{{ $band_in_progress }}"
-    :monthly-performance = "{{ json_encode($monthly_performance)  }}" 
+    :monthly-performance = "{{ json_encode($monthly_performance) }}" 
 >
 </dashboard-component>
 
