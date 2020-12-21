@@ -1,5 +1,5 @@
         <div class="footer" style="text-align: center">
-            <div class="container">
+            <div class="container-fluid">
                 <b class="copyright">&copy; 2014 Edmin - EGrappler.com </b>All rights reserved.
             </div>
         </div>
