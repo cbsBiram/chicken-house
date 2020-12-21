@@ -24,7 +24,7 @@
                             </a>
                             <a href="#" class="btn-box-darker big span4">
                                 <i class="icon-money"></i><b>{{ number_format($band->benefits) }}</b>
-                                <p class="text-muted">Benefits</p>
+                                <p class="text-muted">Benefits (F CFA)</p>
                             </a>
                         </div>
                         <div class="btn-box-row row-fluid">
@@ -37,6 +37,11 @@
                                 <i class="icon-user"></i>
                                 <b>{{$band->loss}}</b>
                                 <p class="text-muted">Number of losses</p>
+                            </a>
+                            <a href="#" class="btn-box-darker big span4">
+                                <i class="icon-money"></i>
+                                <b>{{ number_format($total_charges) }}</b>
+                                <p class="text-muted">Total of charges (F CFA)</p>
                             </a>
                         </div>
                     </div>

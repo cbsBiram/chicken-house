@@ -51,6 +51,15 @@ class Band extends Model
         return Band::find($id)->delete();
     }
 
+    public function totalCharges() {
+        $band_charges = floatval($this->purchase_price);
+        $foods_charges =  $this->foods->sum('total_price');
+        $extras_charges =  $this->extra_charges->sum('total_price');
+        $total_charges = $band_charges + $foods_charges + $extras_charges;
+
+        return $total_charges;
+    }
+
     public function perfByMonth() {
         $performances = [];
         for ($i=1; $i < 13; $i++) {
