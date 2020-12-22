@@ -155,7 +155,7 @@ import moment from "moment";
             },
             {
                 key: "quantity",
-                label: "Qte initiale",
+                label: "Qté initiale",
                 thClass: "font-weight-bold",
                 sortable: true
             },
@@ -186,7 +186,7 @@ import moment from "moment";
             },
             {
                 key: "created_at",
-                label: "Date de creation",
+                label: "Date de création",
                 thClass: "font-weight-bold",
                 formatter: "dateFormatter",
                 sortable: true,

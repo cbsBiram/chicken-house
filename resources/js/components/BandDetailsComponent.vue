@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col-md-12">
             <b-card>
-                <h2 class="mt-2 mb-4">Details de la bande : <b>{{ band.label }}</b></h2>
+                <h2 class="mt-2 mb-4">Détails de la bande : <b>{{ band.label }}</b></h2>
                 <b-tabs v-model="tabIndex" content-class="mt-3" justified>
                     <b-tab class="tab" title="Charges alimentaires" active>
                         <div class="row mb-3">
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                     </b-tab>
-                    <b-tab title="Charges supplementaires">
+                    <b-tab title="Charges supplémentaires">
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <b-row>
@@ -248,7 +248,7 @@ import moment from "moment";
             },
             {
                 key: "quantity",
-                label: "Quantite",
+                label: "Quantité",
                 thClass: "font-weight-bold",
                 sortable: true
             },
@@ -261,7 +261,7 @@ import moment from "moment";
             },
             {
                 key: "created_at",
-                label: "Date de creation",
+                label: "Date de création",
                 thClass: "font-weight-bold",
                 formatter: "dateFormatter",
                 sortable: true,
@@ -277,13 +277,13 @@ import moment from "moment";
             },
             {
                 key: "quantity",
-                label: "Quantite",
+                label: "Quantité",
                 thClass: "font-weight-bold",
                 sortable: true,
             },
             {
                 key: "quantity_consumed",
-                label: "Qte consommee",
+                label: "Qté consommee",
                 thClass: "font-weight-bold",
                 sortable: true
             },
@@ -309,7 +309,7 @@ import moment from "moment";
             },
             {
                 key: "created_at",
-                label: "Date de creation",
+                label: "Date de créqtion",
                 thClass: "font-weight-bold",
                 formatter: "dateFormatter",
                 sortable: true,

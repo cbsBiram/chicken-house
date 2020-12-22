@@ -7,16 +7,16 @@
             </svg>
         </b-link>
 
-        <b-modal v-model="show" centered ref="band-modal" :title="'Details de la bande ' + item.label + ' - ID = ' + item.id">
+        <b-modal v-model="show" centered ref="band-modal" :title="'Détails de la bande ' + item.label + ' - ID = ' + item.id">
             <div class="d-block ">
                 <ul id="example-1">
                     <li><b>Fournisseur :</b>  {{ item.provider }}</li>
-                    <li><b>Quantite initiale :</b>  {{ item.quantity }}</li>
+                    <li><b>Quantité initiale :</b>  {{ item.quantity }}</li>
                     <li><b>Perte(s) :</b>  {{ item.loss }}</li>
                     <li><b>Prix d'achat :</b> 
                         {{ Number(item.purchase_price).toLocaleString() }} F CFA
                     </li>
-                    <li><b>Benefices :</b> 
+                    <li><b>Bénéfices :</b> 
                         {{ Number(item.purchase_price).toLocaleString() }} F CFA
                     </li>
                 </ul>

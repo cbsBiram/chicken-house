@@ -7,13 +7,13 @@
             </svg>
         </b-link>
 
-        <b-modal v-model="show" centered ref="sale-modal" :title="'Details de la vente - ID = ' + item.id">
+        <b-modal v-model="show" centered ref="sale-modal" :title="'Détails de la vente - ID = ' + item.id">
             <div class="d-block ">
                 <ul id="example-2">
                     <li><b>Acheteur :</b>  {{ item.buyer }}</li>
-                    <li><b>Quantite :</b>  {{ item.quantity }}</li>
+                    <li><b>Quantité :</b>  {{ item.quantity }}</li>
                     <li><b>Bande:</b>  {{ item.band.label }}</li>
-                    <li><b>Prix unitaire:</b> 
+                    <li><b>Prix unitaire :</b> 
                         {{ Number(item.price).toLocaleString() }} F CFA
                     </li>
                     <li><b>Prix total :</b> 

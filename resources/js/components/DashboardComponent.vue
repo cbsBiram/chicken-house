@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card"> 
                 <div class="card-header">
-                    Informations generales
+                    Informations générales
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
