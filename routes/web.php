@@ -1,12 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 
 use Carbon\Carbon;
+
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 use App\Models\Band;
 use App\Models\Sale;
 use App\Models\User;
+
 
 
 /*
@@ -30,10 +38,24 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+/* Reset Password routes */
+Route::get('forget-password', 'ForgotPasswordController@getEmail')->name('forget-password');
+Route::post('forget-password', 'ForgotPasswordController@postEmail')->name('forget-password');
+
+Route::get('reset-password/{token}', 'App\Http\Controllers\Auth\ResetPasswordController@getPassword');
+Route::post('reset-password', 'App\Http\Controllers\Auth\ResetPasswordController@updatePassword');
+/*** END RESET ROUTES ***/
+
+
+/* Frontend routes */
 Route::get('bands', 'BandController@getBands')->middleware('auth');
 Route::get('band-details/{bandId}', 'BandController@getBandDetails')->middleware('auth');
 Route::get('sales', 'SaleController@getSales')->middleware('auth');
+/*** END FRONTEND ROUTES ***/
 
+
+/* Backend routes */
 Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/', function () {
         $nb_band = (new Band)->allBand()->count();
@@ -53,3 +75,4 @@ Route::group(['middleware' => 'isAdmin'], function () {
    Route::get('extra/create/{bandId}', 'ExtraChargeController@createExtra'); 
    Route::post('extra/store/{bandId}', 'ExtraChargeController@storeExtra'); 
 });
+/*** END BACKEND ROUTES ***/

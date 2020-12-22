@@ -98,7 +98,7 @@
 
         <div class="footer" style="text-align: center">
             <div class="container mb-4">
-                <b class="copyright">&copy; 2020 Chicken House - </b>Tout droits reserves.
+                <b class="copyright">&copy; 2020 Chicken House - </b>Tout droits réservés.
             </div>
         </div>
 
