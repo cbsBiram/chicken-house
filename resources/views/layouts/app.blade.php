@@ -20,6 +20,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -84,23 +90,7 @@
             </div>
         </nav>
 
-        {{-- <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="/home">
-                <i class="fa fa-home" aria-hidden="true"></i>Accueil
-            </a>
-            <a href="/bands" >
-                <i class="fa fa-tasks" aria-hidden="true"></i>Bandes
-            </a>
-            <a href="/sales">
-                <i class="fa fa-id-card" aria-hidden="true"></i>Ventes
-            </a>
-            <a href="{{ route('logout') }}">
-                <i class="fa fa-sign-out" aria-hidden="true" style="color: red"></i>Deconnexion
-            </a>
-        </div> --}}
-
-        <main class=" py-4">
+        <main>
             <div id="main">
                 @yield('content')
             </div>
