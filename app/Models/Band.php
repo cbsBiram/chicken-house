@@ -20,7 +20,7 @@ class Band extends Model
      */
     protected $fillable = [
         'label', 'quantity', 'unit_price', 'status', 'loss', 
-        'purchase_price', 'benefits', 'provider', 'user_id'
+        'purchase_price', 'benefits', 'total_charges', 'provider', 'user_id'
     ];
 
     public function sales() {

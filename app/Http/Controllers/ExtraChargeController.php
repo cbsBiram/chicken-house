@@ -59,6 +59,11 @@ class ExtraChargeController extends Controller
         $extra->band_id = $band_id;
         $extra->save();
 
+        $band = (new Band)->findBand($band_id);
+        $band->total_charges = floatval($band->purchase_price) + $band->extra_charges->sum('total_price') 
+            + $band->foods->sum('total_price');
+        $band->save();
+
         return redirect()->back()->with('message', 'Extras charges created successfully');
     }
 
@@ -111,8 +116,13 @@ class ExtraChargeController extends Controller
         $extra->band_id = $request->get('band');
         $extra ->save();
 
+        $band = (new Band)->findBand($request->get('band'));
+        $band->total_charges = floatval($band->purchase_price) + $band->extra_charges->sum('total_price') 
+            + $band->foods->sum('total_price');
+        $band->save();
+
         return redirect()->route('band.index')->with('message', 'Extras charges updated successfully');
-    }
+    } 
 
     /**
      * Remove the specified resource from storage.

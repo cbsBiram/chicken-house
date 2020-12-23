@@ -40,7 +40,7 @@
                             </a>
                             <a href="#" class="btn-box-darker big span4">
                                 <i class="icon-money"></i>
-                                <b>{{ number_format($total_charges) }}</b>
+                                <b>{{ number_format($band->total_charges) }}</b>
                                 <p class="text-muted">Total of charges (F CFA)</p>
                             </a>
                         </div>

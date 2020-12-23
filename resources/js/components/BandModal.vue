@@ -16,6 +16,9 @@
                     <li><b>Prix d'achat :</b> 
                         {{ Number(item.purchase_price).toLocaleString() }} F CFA
                     </li>
+                    <li><b>Charges totales :</b> 
+                        {{ Number(item.total_charges).toLocaleString() }} F CFA
+                    </li>
                     <li><b>Bénéfices :</b> 
                         {{ Number(item.purchase_price).toLocaleString() }} F CFA
                     </li>
@@ -23,7 +26,7 @@
             </div>
         </b-modal>
     </div>
-</template>
+</template>column
 
 <script>
     export default {

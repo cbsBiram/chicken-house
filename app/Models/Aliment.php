@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Aliment;
+use App\Models\Band;
 
 class Aliment extends Model
 {
@@ -20,6 +21,10 @@ class Aliment extends Model
         'total_price', 'type', 'quantity', 'weight', 'price',
         'quantity_consumed', 'band_id'
     ];
+
+    public function band() {
+        return $this->belongsTo(Band::class);
+    }
 
     public function findFood($id) {
         return Aliment::find($id);

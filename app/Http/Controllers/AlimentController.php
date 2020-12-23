@@ -62,6 +62,11 @@ class AlimentController extends Controller
         $food->band_id = $band_id;
         $food->save();
 
+        $band = (new Band)->findBand($band_id);
+        $band->total_charges = floatval($band->purchase_price) + $band->extra_charges->sum('total_price') 
+            + $band->foods->sum('total_price');
+        $band->save();
+
         return redirect()->back()->with('message', 'Food charges created successfully');
     }
 
@@ -115,6 +120,11 @@ class AlimentController extends Controller
         $food->total_price = $request->get('price') * $request->get('quantity');
         $food->band_id = $request->get('band');
         $food ->save();
+
+        $band = (new Band)->findBand($request->get('band'));
+        $band->total_charges = floatval($band->purchase_price) + $band->extra_charges->sum('total_price') 
+            + $band->foods->sum('total_price');
+        $band->save();
 
         return redirect()->route('band.index')->with('message', 'Food charges updated successfully');
     }

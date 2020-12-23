@@ -41,11 +41,14 @@ class BandController extends Controller
             'quantity' => 'required|integer',
             'unit_price' => 'required'
         ]);
+        $purchase_price = $request->get('unit_price') * $request->get('quantity');
+
         $band = new Band;
         $band->label = $request->get('label');
         $band->quantity = $request->get('quantity');
         $band->unit_price = $request->get('unit_price');
-        $band->purchase_price = $request->get('unit_price') * $request->get('quantity');
+        $band->purchase_price = $purchase_price;
+        $band->total_charges = $purchase_price;
         $band->provider = $request->get('provider');
         $band->user_id = auth()->user()->id;
         $band ->save();
@@ -62,9 +65,8 @@ class BandController extends Controller
     public function show($id)
     {
         $band = Band::find($id);
-        $total_charges = $band->totalCharges();
         
-        return view('backend.band.show', compact('band', 'total_charges'));
+        return view('backend.band.show', compact('band'));
     }
 
     /**
@@ -93,13 +95,15 @@ class BandController extends Controller
             'quantity' => 'required|integer',
             'unit_price' => 'required'
         ]);
-        
+        $purchase_price = $request->get('unit_price') * $request->get('quantity');
         
         $band = Band::find($id);
         $band->label = $request->get('label');
         $band->quantity = $request->get('quantity');
         $band->unit_price = $request->get('unit_price');
-        $band->purchase_price = $request->get('unit_price') * $request->get('quantity');
+        $band->purchase_price = $purchase_price;
+        $band->total_charges = $purchase_price + $band->foods->sum('total_price')
+            + $band->extra_charges->sum('total_price');
         $band->loss = $request->get('loss');
         $band->status = $request->get('status');
         $band->provider = $request->get('provider');
