@@ -20,7 +20,7 @@
                         {{ Number(item.total_charges).toLocaleString() }} F CFA
                     </li>
                     <li><b>Bénéfices :</b> 
-                        {{ Number(item.purchase_price).toLocaleString() }} F CFA
+                        {{ Number(item.benefits).toLocaleString() }} F CFA
                     </li>
                 </ul>
             </div>

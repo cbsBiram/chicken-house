@@ -45,14 +45,19 @@ class SaleController extends Controller
             'price' => 'required',
             'band' => 'required',
         ]);
+        $band_id = $request->get('band');
 
         $sale = new Sale;
         $sale->quantity = $request->get('quantity');
         $sale->price = $request->get('price');
-        $sale->band_id = $request->get('band');
+        $sale->band_id = $band_id;
         $sale->buyer = $request->get('buyer');
         $sale->total_price = $request->get('quantity') * $request->get('price');
         $sale->save();
+
+        $band = (new Band)->findBand($band_id);
+        $band->remaining = $band->quantity - ($band->sold + $band->loss);
+        $band->save();
 
         return redirect()->back()->with('message', 'Sale created successfully');
     }
@@ -107,17 +112,17 @@ class SaleController extends Controller
 
         $sale->save();
 
+        $band = (new Band)->findBand($band_id);
         if ($sale->status == "paid") {
-            $band = (new Band)->findBand($band_id);
-
-            $total_sales_price = $band->sales->sum('total_price');
+            $band->sold = $band->sales->where('status', 'paid')->sum('quantity');
+            $total_sales_price = $band->sales->where('status', 'paid')->sum('total_price');
             $total_foods_price = $band->foods->sum('total_price');
             $total_extras_price = $band->extra_charges->sum('total_price');
             $band->benefits = $total_sales_price - ($band->purchase_price + $total_foods_price
-                                + $total_extras_price);
-                                
-            $band->save();
+                                + $total_extras_price);     
         }
+        $band->remaining = $band->quantity - ($band->sold + $band->loss);                    
+        $band->save();
 
         return redirect()->route('sale.index')->with('message', 'Sale updated successfully!');
     }

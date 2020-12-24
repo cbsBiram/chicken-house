@@ -104,9 +104,11 @@ class BandController extends Controller
         $band->purchase_price = $purchase_price;
         $band->total_charges = $purchase_price + $band->foods->sum('total_price')
             + $band->extra_charges->sum('total_price');
-        $band->loss = $request->get('loss');
         $band->status = $request->get('status');
         $band->provider = $request->get('provider');
+        $band->loss = $request->get('loss');
+        $band->sold = $band->sales->where('status', 'paid')->sum('quantity');
+        $band->remaining = $band->quantity - ($band->sold + $band->loss);
         $band ->save();
 
         return redirect()->route('band.index')->with('message', 'Band updated successfully');
