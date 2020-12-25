@@ -21,7 +21,7 @@
                     <div class="module-body">
                         <form action="{{ route('user.store') }}" method="POST">@csrf
                             <div class="control-group">
-                                <label class="control-lable">Full name</label>
+                                <label class="control-lable">Username</label>
                                 <div class="controls">
                                     <input type="text" name="name" class="span8 form-control @error('name') border-red  @enderror" placeholder="name" value="{{old('name')}}" >
                                 </div>

@@ -23,7 +23,7 @@
                                     {{ method_field('PUT') }}
 
                                     <div class="control-group">
-                            			<label class="control-label">Full name</label>
+                            			<label class="control-label">Username</label>
                             			<div class="controls">
                                             <input type="text" name="name" class="span8 @error('name') border-red @enderror" 
                                                 placeholder="name" value="{{$user->name}}"
@@ -41,7 +41,7 @@
                                     <div class="control-group">
                                         <label class="control-lable" for="password">Password</label>
                                         <div class="controls"> 
-                                            <input type="text" name="password" class="span8 @error('password') border-red @enderror" 
+                                            <input type="password" name="password" class="span8 @error('password') border-red @enderror" 
                                                 placeholder="password" 
                                             >
                                         </div>

@@ -56,7 +56,7 @@
                                     <b-col lg="6" class="my-1">
                                         <b-form-group
                                         v-model="sortDirection"
-                                        label="Filter On"
+                                        label="Filtrer par"
                                         description="Leave all unchecked to filter on all data"
                                         label-cols-sm="3"
                                         label-align-sm="right"
@@ -162,7 +162,7 @@
                                     <b-col lg="6" class="my-1">
                                         <b-form-group
                                         v-model="sortDirection"
-                                        label="Filter On"
+                                        label="Filtrer par"
                                         description="Leave all unchecked to filter on all data"
                                         label-cols-sm="3"
                                         label-align-sm="right"
@@ -236,33 +236,38 @@ import moment from "moment";
             {
                 key: "label",
                 label: "Label",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "price",
                 label: "Prix unitaire (F CFA)",
                 formatter: "formatNumber",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true,
             },
             {
                 key: "quantity",
                 label: "Quantité",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "total_price",
                 label: "Prix total (F CFA)",
                 formatter: "formatNumber",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true,
             },
             {
                 key: "created_at",
                 label: "Date de création",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 formatter: "dateFormatter",
                 sortable: true,
             },
@@ -272,45 +277,52 @@ import moment from "moment";
             {
                 key: "type",
                 label: "Type",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "quantity",
                 label: "Quantité",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true,
             },
             {
                 key: "quantity_consumed",
                 label: "Qté consommee",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "weight",
                 label: "Poids",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "price",
                 label: "Prix unitaire (F CFA)",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true,
                 formatter: "formatNumber",
             },
             {
                 key: "total_price",
                 label: "Prix total (F CFA)",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true,
                 formatter: "formatNumber",
             },
             {
                 key: "created_at",
-                label: "Date de créqtion",
-                thClass: "font-weight-bold",
+                label: "Date de création",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 formatter: "dateFormatter",
                 sortable: true,
             }

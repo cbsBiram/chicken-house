@@ -167,23 +167,27 @@ import SaleModal from "./SaleModal.vue";
             {
                 key: 'label',
                 label: 'Label',
-                thClass: 'font-weight-bold'
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
             },
             {
                 key: 'remaining',
                 label: 'Restant(s)',
-                thClass: 'font-weight-bold',
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
             },
             {
                 key: 'sold',
                 label: 'Vendu(s)',
-                thClass: 'font-weight-bold',
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
             },
             {
-                key: 'sales_figure',
-                label: 'Chiffre d\'affaire (F CFA)',
-                thClass: 'font-weight-bold',
-                formatter: "formatNumber"
+                key: 'status',
+                label: 'Statut',
+                formatter: "bandStatusFr",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
             },
             'action'
         ],
@@ -193,18 +197,21 @@ import SaleModal from "./SaleModal.vue";
             {
                 key: 'band.label',
                 label: 'Bande',
-                thClass: 'font-weight-bold'
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
             },
             {
                 key: 'status',
                 label: 'Statut',
-                thClass: 'font-weight-bold',
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 formatter: 'saleStatusFr'
             },
             {
                 key: 'total_price',
                 label: 'Prix de vente (F CFA)',
-                thClass: 'font-weight-bold',
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 formatter: "formatNumber"
             },
             'action'
@@ -261,7 +268,14 @@ import SaleModal from "./SaleModal.vue";
         saleStatusFr(status) {
             if(status === 'pending') return 'En attente';
 
-            return 'Paye';
+            return 'Payé';
+        },
+        bandStatusFr(status) {
+            if(status === 'start') return 'Démarrage';
+            if(status === 'growth') return 'Croissance';
+            if(status === 'finish') return 'Finition';
+            if(status === 'mature') return 'Mature';
+            return 'Ecoulée';
         },
     },
   }

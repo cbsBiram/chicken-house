@@ -145,37 +145,43 @@ import moment from "moment";
             {
                 key: "band.label",
                 label: "Bande",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "status",
                 label: "Statut",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "quantity",
                 label: "Quantité",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "total_price",
                 label: "Prix de vente (F CFA)",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "buyer",
                 label: "Acheteur",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "created_at",
                 label: "Date de création",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 formatter: "dateFormatter",
                 sortable: true,
             },

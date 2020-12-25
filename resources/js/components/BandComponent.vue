@@ -144,37 +144,44 @@ import moment from "moment";
             {
                 key: "label",
                 label: "Label",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "status",
                 label: "Statut",
                 thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true,
             },
             {
                 key: "quantity",
                 label: "Qté initiale",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "remaining",
                 label: "Restant(s)",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "sold",
                 label: "Vendu(s)",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true
             },
             {
                 key: "sales_figure",
                 label: "Chiffre d'affaire (F CFA)",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 sortable: true,
                 formatter: "formatNumber",
             },
@@ -187,7 +194,8 @@ import moment from "moment";
             {
                 key: "created_at",
                 label: "Date de création",
-                thClass: "font-weight-bold",
+                thClass: 'font-weight-bold text-center',
+                tdClass: 'text-center',
                 formatter: "dateFormatter",
                 sortable: true,
             },
