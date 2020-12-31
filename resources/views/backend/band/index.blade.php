@@ -23,9 +23,9 @@
                                 <th>#</th>
                                 <th>Label</th>
                                 <th>Remaining</th>
-                                <th>Sold</th>
+                                <th>Sales Figures</th>
+                                <th>Purchase Price (F CFA)</th>
                                 <th>Status</th>
-                                <th>Price (F CFA)</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -39,9 +39,9 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $band->label }}</td>
                                     <td>{{ $band->remaining }}</td>
-                                    <td>{{ $band->sold }}</td>
-                                    <td>{{ $band->status }}</td>
+                                    <td>{{ number_format($band->sales->sum('total_price')) }}</td>
                                     <td>{{ number_format($band->purchase_price) }}</td>
+                                    <td>{{ $band->status }}</td>
                                     <td>
                                         <a class="btn btn-warning" href="{{route('band.show', [$band->id])}}">View</a>
                                     </td>

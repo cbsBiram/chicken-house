@@ -13,9 +13,9 @@
                         <h4>{{ $band->label }}</h4>
                         <div class="btn-box-row row-fluid">
                             <a href="#" class="btn-box-darker big span4">
-                                <i class=" icon-random"></i>
-                                <b>{{$band->status}}</b>
-                                <p class="text-muted">Status</p>
+                                <i class="icon-plus-sign"></i>
+                                <b>{{ number_format($band->sales->sum('total_price')) }}</b>
+                                <p class="text-muted">Sales Figures(F CFA)</p>
                             </a>
                             <a href="#" class="btn-box-darker big span4">
                                 <i class="icon-group"></i>

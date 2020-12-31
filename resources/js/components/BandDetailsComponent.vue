@@ -1,10 +1,105 @@
 <template>
     <div class="container">
         <div class="col-md-12">
+            <div class="row ">
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-cherry">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Sujet(s) vendu(s)</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        {{ band.sold.toLocaleString() }}
+                                    </h2>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span>{{ Number.parseFloat(soldPercentage).toFixed(1)}}%  <i class="fa fa-arrow-up"></i></span>
+                                </div>
+                            </div>
+                            <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                                <div class="progress-bar l-bg-cyan" role="progressbar" 
+                                    :data-width="{soldPercentage}+'%'" 
+                                    :aria-valuenow="{soldPercentage}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100" 
+                                    :style="{width: soldPercentage+'%'}"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-blue-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Sujet(s) Perdu(s)</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        {{ band.loss.toLocaleString() }}
+                                    </h2>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span>{{ Number.parseFloat(lossPercentage).toFixed(1) }}% <i class="fa fa-arrow-up"></i></span>
+                                </div>
+                            </div>
+                            <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                                <div class="progress-bar l-bg-green" role="progressbar" 
+                                    :data-width="lossPercentage+'%'" 
+                                    :aria-valuenow="lossPercentage" 
+                                    aria-valuemin="0" aria-valuemax="100" 
+                                    :style="{width: lossPercentage+'%'}"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Chiffre d'Affaire</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        {{ salesFigures }}
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Bénéfices</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        {{ band.benefits.toLocaleString() }} F CFA
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
             <b-card>
-                <h2 class="mt-2 mb-4">Détails de la bande : <b>{{ band.label }}</b></h2>
+                <h2 class="mt-2 mb-4">Détails des charges de la bande : <b>{{ band.label.toUpperCase() }}</b></h2>
                 <b-tabs v-model="tabIndex" content-class="mt-3" justified>
-                    <b-tab class="tab" title="Charges alimentaires" active>
+                    <b-tab class="tab" title="Alimentaires" active>
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <b-row>
@@ -110,7 +205,7 @@
                             </div>
                         </div>
                     </b-tab>
-                    <b-tab title="Charges supplémentaires">
+                    <b-tab title="Supplémentaires">
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <b-row>
@@ -227,7 +322,7 @@ import moment from "moment";
 
   export default {
     name: "BandDetailsComponent",
-    props: ["band", "extras", "foods"],
+    props: ["band", "extras", "foods", "salesFigures", "lossPercentage", "soldPercentage"],
     data() {
       return {
         currentPage: 1,
@@ -287,13 +382,6 @@ import moment from "moment";
                 thClass: 'font-weight-bold text-center',
                 tdClass: 'text-center',
                 sortable: true,
-            },
-            {
-                key: "quantity_consumed",
-                label: "Qté consommee",
-                thClass: 'font-weight-bold text-center',
-                tdClass: 'text-center',
-                sortable: true
             },
             {
                 key: "weight",

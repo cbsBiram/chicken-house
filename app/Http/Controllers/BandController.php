@@ -145,9 +145,12 @@ class BandController extends Controller
      */
     public function getBandDetails($band_id) {
         $band = Band::find($band_id);
+        $sold_percentage = $band->sold / $band->quantity * 100;
+        $loss_percentage = $band->loss / $band->quantity * 100;
+        $sales_figures = $band->sales->sum('total_price');
         $foods = $band->foods()->get();
         $extras = $band->extra_charges()->get();
 
-        return view('band-details', compact('band', 'foods', 'extras'));
+        return view('band-details', compact('band', 'foods', 'extras', 'sold_percentage', 'loss_percentage', 'sales_figures'));
     }
 }
