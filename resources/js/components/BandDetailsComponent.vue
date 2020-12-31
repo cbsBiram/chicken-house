@@ -64,7 +64,7 @@
                         <div class="card-statistic-3 p-4">
                             <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
                             <div class="mb-4">
-                                <h5 class="card-title mb-0">Chiffre d'Affaire</h5>
+                                <h5 class="card-title mb-0">Chiffre d'Affaire F CFA</h5>
                             </div>
                             <div class="row align-items-center mb-2 d-flex">
                                 <div class="col-8">
@@ -81,14 +81,22 @@
                         <div class="card-statistic-3 p-4">
                             <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
                             <div class="mb-4">
-                                <h5 class="card-title mb-0">Bénéfices</h5>
+                                <h5 class="card-title mb-0">Bénéfices F CFA</h5>
                             </div>
                             <div class="row align-items-center mb-2 d-flex">
                                 <div class="col-8">
                                     <h2 class="d-flex align-items-center mb-0">
-                                        {{ band.benefits.toLocaleString() }} F CFA
+                                        {{ band.benefits.toLocaleString() }} 
                                     </h2>
                                 </div>
+                            </div>
+                            <div class="progress mt-1 " data-height="8" style="height: 8px; visibility: hidden">
+                                <div class="progress-bar l-bg-green" role="progressbar" 
+                                    :data-width="lossPercentage+'%'" 
+                                    :aria-valuenow="lossPercentage" 
+                                    aria-valuemin="0" aria-valuemax="100" 
+                                    :style="{width: lossPercentage+'%'}"
+                                ></div>
                             </div>
                         </div>
                     </div>
