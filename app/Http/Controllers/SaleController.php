@@ -82,7 +82,7 @@ class SaleController extends Controller
     public function edit($id)
     {
         $sale = (new Sale)->findSale($id);
-        $bands = Band::where('status', '!=', 'mature')->get();
+        $bands = Band::where('status', '!=', 'elapsed')->get();
         return view('backend.sale.edit', compact('sale', 'bands'));
     }
 
