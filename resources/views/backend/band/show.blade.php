@@ -10,7 +10,7 @@
                 <div class="module-body">
 
                     <div class="btn-controls">
-                        <h4>{{ $band->label }}</h4>
+                        <h4>{{ $band->label }} created on {{ $band->created_at }}</h4>
                         <div class="btn-box-row row-fluid">
                             <a href="#" class="btn-box-darker big span4">
                                 <i class="icon-plus-sign"></i>
