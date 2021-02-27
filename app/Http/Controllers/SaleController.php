@@ -28,7 +28,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        $bands = Band::where('status', '!=', 'mature')->get();
+        $bands = Band::where('status', '!=', 'elapsed')->get();
         return view('backend.sale.create', compact('bands'));
     }
 
